@@ -20,7 +20,6 @@ public partial class _Default : System.Web.UI.Page
         var policyName = txtPolicyName.Text;
         var policyKey = txtPolicyKey.Text;
         var ttl = TimeSpan.FromMinutes( Convert.ToDouble(txtTTL.Text));
-
         var resource = ServiceBusEnvironment.CreateServiceUri("https", nameSpace, eventHub).ToString().Trim('/');
         lblResult.Text = SharedAccessSignatureTokenProvider.GetSharedAccessSignature(policyName, policyKey, resource, ttl);
 
